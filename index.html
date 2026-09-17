@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Based Spam Email Detector</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation bar -->
+  <header class="navbar">
+    <div class="brand">
+      <span class="logo">AI</span>
+      <span class="brand-text">Spam Email Detector</span>
+    </div>
+    <nav>
+      <a href="/" class="active">Home</a>
+      <a href="#detector">Spam Detector</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero / title section -->
+    <section class="hero">
+      <h1>AI-Based Spam Email Detector</h1>
+      <p>
+        Paste any email subject and message below. Our Java-powered analyzer scores
+        the text against spam keywords, shouting capitals, excessive punctuation,
+        suspicious links and requests for money or credentials &mdash; then returns a
+        spam probability from 0% to 100%.
+      </p>
+    </section>
+
+    <!-- Stats cards -->
+    <section class="stat-grid">
+      <div class="stat-card">
+        <h3>Keyword Engine</h3>
+        <p>30+ weighted spam terms scored per occurrence.</p>
+      </div>
+      <div class="stat-card">
+        <h3>Heuristic Checks</h3>
+        <p>Capitals, exclamation marks, links and credential requests.</p>
+      </div>
+      <div class="stat-card">
+        <h3>Zero Storage</h3>
+        <p>Emails are analyzed in memory and never saved to disk.</p>
+      </div>
+    </section>
+
+    <!-- Detector form -->
+    <section class="card" id="detector">
+      <h2 class="card-title">Check an Email</h2>
+
+      <!-- Plain HTML form: posts straight to the Java backend, no JavaScript -->
+      <form action="/check" method="post">
+        <label for="subject">Email Subject</label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          placeholder="e.g. CONGRATULATIONS! You are our lucky winner"
+          maxlength="200"
+        />
+
+        <label for="message">Email Message <span class="required">*</span></label>
+        <textarea
+          id="message"
+          name="message"
+          rows="12"
+          maxlength="10000"
+          placeholder="Paste the full email body here..."
+          required
+        ></textarea>
+
+        <div class="button-row">
+          <button type="submit" class="btn btn-primary">Check Email</button>
+          <button type="reset" class="btn btn-ghost">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- About section -->
+    <section class="card" id="about">
+      <h2 class="card-title">About This Project</h2>
+      <p>
+        This application is built with plain HTML and CSS for the interface and pure
+        Java for the backend. The detection logic uses a transparent, rule-based
+        scoring model inspired by Naive Bayes: every spam indicator contributes points,
+        the total is normalised into a percentage, and the email is classified as
+        <strong class="text-spam">Spam</strong>,
+        <strong class="text-suspicious">Suspicious</strong> or
+        <strong class="text-safe">Not Spam</strong>.
+      </p>
+      <ul class="about-list">
+        <li>No JavaScript, no database, no external libraries.</li>
+        <li>All input is validated and HTML-escaped before display.</li>
+        <li>Nothing is stored &mdash; each request is analyzed and discarded.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    AI-Based Spam Email Detector
+  </footer>
+
+</body>
+</html>
